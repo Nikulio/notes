@@ -1,0 +1,228 @@
+.cf:before, .cf:after {
+	content: " ";
+	display: table;
+}
+
+.cf:after {
+	clear: both;
+}
+
+.f_left {
+	float: left;
+}
+
+.f_right {
+	float: right;
+}
+
+/*-------------------------------------Mixins--------------------------------------------------------------------*/
+
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin transition($args...) {
+	-webkit-transition: $args;
+	-moz-transition: $args;
+	-o-transition: $args;
+	transition: $args;
+}
+
+@mixin transform($transforms) {
+	-moz-transform: $transforms;
+	-o-transform: $transforms;
+	-ms-transform: $transforms;
+	-webkit-transform: $transforms;
+	transform: $transforms;
+}
+
+@mixin size($width, $height) {
+	width: $width;
+	height: $height;
+}
+
+@mixin position($top, $left) {
+	top: $top;
+	left: $left;
+}
+
+html * {
+	font-family: 'Yatra One', Helvetica, cursive;
+}
+
+html {
+	overflow-x: hidden;
+	height: 100%;
+
+}
+body {
+	height: 100%;
+}
+div.popup_login {
+	display: none;
+	.row {
+		text-align: center;
+
+		h2 {
+			padding: 5px;
+			text-align: center;
+		}
+		&.explain_popup {
+			margin: 40px auto;
+			span {
+				padding: 5px;
+			}
+		}
+	}
+}
+#pop-up-warning {
+	display: block;
+	opacity: 0;
+	position: fixed;
+	background: rgba(0, 0, 0, 0.9);
+	width: 100%;
+	z-index: 1;
+	height: 100%;
+	@include transition(.4s opacity);
+	&.open {
+		opacity: 1;
+		z-index: 100;
+	}
+	h2 {
+		display: block;
+		@include border-radius(25px);
+		position: absolute;
+		top: 50%;
+		background: #ffffff;
+		left: 50%;
+		text-align: center;
+		padding: 100px 40px;
+		@include transform(translate(-50%, -50%));
+		#close_popup {
+			position: absolute;
+			bottom: -90px;
+			left: 50%;
+			@include transform(translateX(-50%))
+		}
+	}
+
+}
+div#main_content {
+	z-index: 50;
+	position: relative;
+	background: #FCFEE3;  
+	height: 100%;
+
+	div.row.welcome {
+		display: block;
+		text-align: center;
+		span.bg-danger {
+			margin-top: 23px;
+			display: inline-block;
+		}
+	}
+	div.notes_wrap {
+		text-align: center;
+		margin-top: 60px;
+		max-width: 600px;
+		div.arrow_tip {
+			position: absolute;
+			top: 50%;
+			width: 140px;
+			left: -200px;
+			display: block;
+			@include transform(translateY(-50%));
+			p {
+				margin: 0;
+			}
+			i.arrow {
+				background: url("../img/arrow_left.png") no-repeat scroll 25px 0;
+				display: block;
+				width: 100%;
+				height: 59px;
+			}
+		}
+		div.main_input_wrap {
+			background: rgba(0, 0, 0, 0.2);
+			position: relative;
+			div#tooltip_input {
+				visibility: hidden;
+				width: 120px;
+				color: #fff;
+				text-align: center;
+				padding: 5px 0;
+				border-radius: 6px;
+
+				/* Position the tooltip text - see examples below! */
+				position: absolute;
+				z-index: 1;
+				&.tooltip-top {
+					bottom: 125%;
+					left: 60px;
+					margin-left: -60px;
+				}
+				&:after {
+					content: "";
+					position: absolute;
+					top: 100%;
+					left: 50%;
+					margin-left: -5px;
+					border-width: 5px;
+					border-style: solid;
+					border-color: #F0AD4E transparent transparent transparent;
+				}
+				&.open {
+					visibility: visible;
+				}
+			}
+		}
+		a#save_note {
+			margin: 0 0 20px;
+		}
+		input.note_input {
+			margin: 20px 0;
+		}
+		div.notes_block {
+			background: #FCFEE3;
+			margin-bottom: 20px;
+			padding: 10px;
+			position: relative;
+			div#empty_notes {
+				display: none;
+				&.open {
+					display: block;
+				}
+			}
+			div.arrow_tip {
+				top: 50%;
+				left: auto;
+				right: -200px;
+				display: block;
+				@include transform(translateY(-50%));
+				i.arrow {
+					@include transform(rotate(180deg));
+				}
+			}
+		}
+	}
+	a#save_note {
+		display: inline-block;
+		-webkit-transition: 0.2s opacity;
+		-moz-transition: 0.2s opacity;
+		-ms-transition: 0.2s opacity;
+		-o-transition: 0.2s opacity;
+		transition: 0.2s opacity;
+	}
+	p.note_text {
+		color: #3385ff;
+		line-height: 30px;
+		border-left: 1px solid #000;
+		border-right: 1px solid #000;
+		padding: 0 10px;
+		span.note_count_number {
+			color: red;
+		}
+	}
+}

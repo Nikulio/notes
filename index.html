@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>notes</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Yatra+One" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="pop-up-warning">
+	<h2>
+		Hello, traveler! <br>This project is still beta. <br>Pay attention!
+		<a href="#" class="btn btn-lg btn-warning" id="close_popup">Got it</a>
+	</h2>
+</div>
+<div class="wrap" id="main_content">
+
+	<div class="row welcome">
+		<div class="col-sm-12">
+			<h2>Welcome to the <kbd>NikNotes</kbd>!
+				<br>
+				Here you may write something <span class="bg-danger">important</span> and come back later!
+			</h2>
+		</div>
+	</div>
+	<div class="notes_wrap  container">
+		<div class="row">
+			<div class="col-sm-12">
+				<a href="#" class="btn btn-danger" id="reset_notes">
+					<i class="glyphicon glyphicon-remove"></i>
+					kill them all
+				</a>
+				<div class="main_input_wrap">
+					<div id="tooltip_input" class="tooltip-top btn-warning">
+						<span class="bg-primary">Please,</span>
+						put something important here!
+					</div>
+					<input
+							placeholder="Here you may put your note"
+							type="text"
+							class="note_input form-control"
+							id="note_input">
+					<div class="arrow_tip">
+						<p>Type your note here</p>
+						<i class="arrow"></i>
+					</div>
+				</div>
+				<a href="#" class="btn btn-success " id="save_note">
+					<i class="glyphicon glyphicon-cloud"></i>
+					save note
+				</a>
+
+				<div class="notes_block form_group">
+					<div class="no_notes" id="empty_notes">
+						<p>No notes here. Put some upon this!</p>
+						<img src="img/travolta.gif" alt="">
+					</div>
+					<div class="arrow_tip">
+						<p>Enjoy your notes! It is simple!</p>
+						<i class="arrow"></i>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>-->
+<script
+		src="http://code.jquery.com/jquery-1.12.4.min.js"
+		integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+		crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="js/common.js"></script>
+</body>
+</html>
